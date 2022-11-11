@@ -1,0 +1,105 @@
+$main-color: rgb(4, 238, 255);
+
+*
+{
+    box-sizing: border-box;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    color: #FFF;
+}
+
+body
+{
+    background-image: url("../assets/img/pexels-simon-berger-1323550.jpg");
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+@mixin center($space)
+{
+    display: flex;
+    justify-content: $space;
+    align-items: center;    
+}
+
+@mixin middle
+{
+    width: 90%;
+    margin: 0 auto;
+}
+
+header
+{
+    height: 100vh;
+    min-height: 600px;
+    @include center(center);
+    @include middle;
+
+    .container
+    {
+        background: linear-gradient(90deg, rgba(226,54,77,0.4), rgba(111,64,240,0.4));
+        border-radius: 30px;
+        padding: 40px;
+        text-align: center;
+
+        h1
+        {
+            color: $main-color;
+            @media screen and (max-width: 400px)
+            {
+                font-size: 1.5rem;
+            }
+        }
+        h3
+        {
+            color: $main-color;
+            span
+            {
+                color: $main-color;
+            }
+        }
+
+        form
+        {
+            display: flex;
+            flex-direction: column;
+            max-width: 200px;
+            @include middle;
+
+            input[type="date"]
+            {
+                padding: 10px;
+                border-radius: 10px;
+                background-color: rgba(255, 255, 255, 0.466);
+                border: 1px solid $main-color;
+                font-size: 1.2rem;
+            }
+            label
+            {
+                margin: 20px 0 5px;
+                color: $main-color;
+                font-weight: 600;
+            }
+            .content
+            {
+                input
+                {
+                    padding: 5px 20px;
+                    background-color: $main-color;
+                    border: 1px solid rgb(55, 0, 255);
+                    color: #000;
+                    border-radius: 14px;
+
+                    &:hover
+                    {
+                        border-radius: 10px;
+                        transform: scale(1.05);
+                    }
+
+                    transition: 0.4s ease;
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+}
